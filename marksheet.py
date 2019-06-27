@@ -1,3 +1,4 @@
+import csv
 print ("Marksheet")
 name = str(input("Please enter your name"))
 Roll_Num = "12345"
@@ -30,3 +31,10 @@ elif Perc>=45 and Perc<=54:
     print ("Grade 'E'")
 elif Perc<=44:
     print ("Grade 'F'")
+userData = [name,Roll_Num,Class,Eng_marks,Urdu_marks,Math_marks,Phy_marks,CompSc_marks,Total_Marks,obt_marks,Perc]
+with open("Marksheet.csv","w" ,newline="") as f:
+
+        file_handler = csv.writer(f, delimiter=',')    
+        
+        file_handler.writerow(["Name","Roll_Num","Class","English","Urdu","Math","Physics","CompSc","Obtained Marks","Total Marks","Percentage"])
+        file_handler.writerow(userData)
